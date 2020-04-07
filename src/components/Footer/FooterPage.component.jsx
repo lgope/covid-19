@@ -1,17 +1,3 @@
-// import React from "react";
-// import './FooterPage.styles.css';
-
-// const FooterPage = () => {
-//   return (
-//     <div className="credit">
-//       &copy; {new Date().getFullYear()} 🌈 Design by <a rel='' target="_blank" href="https://github.com/lgope">Lakshman</a> 🔗 Api By <a Target="_blank" href="https://github.com/mathdroid/covid-19-api">Mathdroid</a>
-//     </div>
- 
-//   );
-// }
-
-// export default FooterPage;
-
 import React from "react";
 import { MDBContainer, MDBFooter } from "mdbreact";
 import './FooterPage.styles.css';
