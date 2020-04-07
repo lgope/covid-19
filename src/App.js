@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Cards, Chart, CountryPicker } from './components';
+import { Cards, Chart, CountryPicker, FooterPage } from './components';
 import './App.styles.css';
 import { fetchApiData } from './api/covid19.api';
 
@@ -33,6 +33,7 @@ class App extends Component {
                 <Cards data={data} />
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
                 <Chart data={data} country={country} />
+                <FooterPage />
             </div>
         )
     }
