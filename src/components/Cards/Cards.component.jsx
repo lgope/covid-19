@@ -27,7 +27,7 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             </Typography>
                     </CardContent>
                 </Grid>
-                <Grid item xs={12} md={3} component={Card} className= 'card recovered'>
+                <Grid item xs={12} md={3} component={Card} className='card recovered'>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>
                             Recovered

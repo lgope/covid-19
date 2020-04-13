@@ -1,11 +1,11 @@
 .formControl {
-    width: 30%;
+  width: 30%;
 
-    margin: 20px 30px !important;
-  }
+  margin: 20px 30px !important;
+}
 
-  @media only screen and (max-width: 770px) {
-    .formControl {
-      margin-top: 15px !important;
-    }
+@media only screen and (max-width: 770px) {
+  .formControl {
+    margin-top: 15px !important;
   }
+}

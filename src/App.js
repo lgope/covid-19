@@ -4,26 +4,25 @@ import { Cards, Chart, CountryPicker, FooterPage } from './components';
 import './App.styles.css';
 import { fetchApiData } from './api/covid19.api';
 
-import covid19Img from './images/image.png'
+import covid19Img from './images/image.png';
 
 class App extends Component {
-
     state = {
         data: {},
         country: '',
-    }
+    };
 
     async componentDidMount() {
         const fetchedData = await fetchApiData();
 
-        this.setState({ data: fetchedData })
+        this.setState({ data: fetchedData });
     }
 
-    handleCountryChange = async country => {
+    handleCountryChange = async (country) => {
         const fetchedData = await fetchApiData(country);
 
         this.setState({ data: fetchedData, country: country });
-    }
+    };
 
     render() {
         const { data, country } = this.state;
@@ -35,7 +34,7 @@ class App extends Component {
                 <Chart data={data} country={country} />
                 <FooterPage />
             </div>
-        )
+        );
     }
 }
 
