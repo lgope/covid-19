@@ -22,7 +22,7 @@ and feel free to share your opinion, constructive criticism, or comments about m
 
 ### To run this project :
 1. Clone this repo
-2. Change your directory : `cd face-detection-brain`
+2. Change your directory : `cd covid-19`
 3. Run `npm install`
 5. Run `npm start`
 
