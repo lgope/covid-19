@@ -8,72 +8,68 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
     return 'Loading... 🔃';
   }
 
+  const Confirmed = {
+    class_name: `card infected`,
+    name: 'Infected',
+    totalValue: confirmed,
+    lastUpdate: lastUpdate,
+    shortDes: `Number of active cases of COVID-19.`,
+  };
+
+  const Recovered = {
+    class_name: `card recovered`,
+    name: 'Recovered',
+    totalValue: recovered,
+    lastUpdate: lastUpdate,
+
+    shortDes: `Number of recoveries from COVID-19.`,
+  };
+
+  const Deaths = {
+    class_name: `card deaths`,
+    name: 'Deaths',
+    totalValue: deaths,
+    lastUpdate: lastUpdate,
+    shortDes: `Number of deaths caused by COVID-19.`,
+  };
+
+  const apiData = [Confirmed, Recovered, Deaths];
+
   return (
     <div className='container'>
       <Grid container spacing={3} justify='center'>
-        <Grid item xs={12} md={3} component={Card} className='card infected'>
-          <CardContent>
-            <Typography color='textSecondary' gutterBottom>
-              Infected
-            </Typography>
-            <Typography variant='h5' component='h2'>
-              <CountUp
-                start={0}
-                end={confirmed.value}
-                duration={2.75}
-                separator=','
-              />
-            </Typography>
-            <Typography color='textSecondary'>
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
-            <Typography variant='body2' component='p'>
-              Number of active cases of COVID-19.
-            </Typography>
-          </CardContent>
-        </Grid>
-        <Grid item xs={12} md={3} component={Card} className='card recovered'>
-          <CardContent>
-            <Typography color='textSecondary' gutterBottom>
-              Recovered
-            </Typography>
-            <Typography variant='h5' component='h2'>
-              <CountUp
-                start={0}
-                end={recovered.value}
-                duration={2.75}
-                separator=','
-              />
-            </Typography>
-            <Typography color='textSecondary'>
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
-            <Typography variant='body2' component='p'>
-              Number of recoveries from COVID-19.
-            </Typography>
-          </CardContent>
-        </Grid>
-        <Grid item xs={12} md={3} component={Card} className='card deaths'>
-          <CardContent>
-            <Typography color='textSecondary' gutterBottom>
-              Deaths
-            </Typography>
-            <Typography variant='h5' component='h2'>
-              <CountUp
-                start={0}
-                end={deaths.value}
-                duration={2.75}
-                separator=','
-              />
-            </Typography>
-            <Typography color='textSecondary'>
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
-            <Typography variant='body2' component='p'>
-              Number of deaths caused by COVID-19.
-            </Typography>
-          </CardContent>
-        </Grid>
+        {apiData.map((data, i) => {
+          return (
+            <Grid
+              key={i}
+              item
+              xs={12}
+              md={3}
+              component={Card}
+              className={data.class_name}
+            >
+              <CardContent>
+                <Typography color='textSecondary' gutterBottom>
+                  {data.name}
+                </Typography>
+                <Typography variant='h5' component='h2'>
+                  <CountUp
+                    start={0}
+                    end={data.totalValue.value}
+                    duration={2.75}
+                    separator=','
+                  />
+                </Typography>
+                <Typography color='textSecondary'>
+                  {new Date(data.lastUpdate).toDateString()}
+                </Typography>
+                <Typography variant='body2' component='p'>
+                  {data.shortDes}
+                </Typography>
+              </CardContent>
+            </Grid>
+          );
+        })}
       </Grid>
     </div>
   );
