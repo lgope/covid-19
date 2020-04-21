@@ -8,32 +8,30 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
     return 'Loading... 🔃';
   }
 
-  const Confirmed = {
-    class_name: `card infected`,
-    name: 'Infected',
-    totalValue: confirmed,
-    lastUpdate: lastUpdate,
-    shortDes: `Number of active cases of COVID-19.`,
-  };
+  const apiData = [
+    {
+      class_name: `card infected`,
+      name: 'Infected',
+      totalValue: confirmed,
+      lastUpdate: lastUpdate,
+      shortDes: `Number of active cases of COVID-19.`,
+    },
+    {
+      class_name: `card recovered`,
+      name: 'Recovered',
+      totalValue: recovered,
+      lastUpdate: lastUpdate,
 
-  const Recovered = {
-    class_name: `card recovered`,
-    name: 'Recovered',
-    totalValue: recovered,
-    lastUpdate: lastUpdate,
-
-    shortDes: `Number of recoveries from COVID-19.`,
-  };
-
-  const Deaths = {
-    class_name: `card deaths`,
-    name: 'Deaths',
-    totalValue: deaths,
-    lastUpdate: lastUpdate,
-    shortDes: `Number of deaths caused by COVID-19.`,
-  };
-
-  const apiData = [Confirmed, Recovered, Deaths];
+      shortDes: `Number of recoveries from COVID-19.`,
+    },
+    {
+      class_name: `card deaths`,
+      name: 'Deaths',
+      totalValue: deaths,
+      lastUpdate: lastUpdate,
+      shortDes: `Number of deaths caused by COVID-19.`,
+    },
+  ];
 
   return (
     <div className='container'>
