@@ -1,0 +1,29 @@
+/* .awssld {
+  display: block;
+  position: relative;
+  width: 600px;
+  max-width: 600px;
+}
+
+.awssld__wrapper {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+    width: 100%;
+}
+
+.awssld__container figure,
+.awssld__content,
+.awssld__box {
+  display: block;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 0;
+  left: 0;
+} */
+
+/* .awareImgg {
+    padding-left: 140px;
+} */

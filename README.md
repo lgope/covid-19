@@ -4,16 +4,17 @@ A simple web app for tracking coronavirus (Covid-19)
 ## Key Features
 Some of the standout features of the project are
 
- 1. Can see globally total Infected, Recovered and Deaths people.
- 2. Also can see individual country updates
- 3. Graphical visualization.
+ 1. Two languages support English and Bangli.
+ 2. Can see globally total Infected, Recovered and Deaths people.
+ 3. Also can see individual country updates
+ 4. Graphical visualization.
  
 
 ## Technologies
  
 1. React.js (Front-end)
 2. css (Styling)
-3. API used: [https://covid19.mathdro.id/api]( https://covid19.mathdro.id/api)
+3. API used : [https://corona.lmao.ninja/v2](https://corona.lmao.ninja/v2)
 
 ## Known Bugs
 
