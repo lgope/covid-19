@@ -14,7 +14,7 @@ import {
 import { fetchDate, fetchLocalCountry } from './api/covid19.api';
 
 class App extends Component {
-  state = { data: {}, localData: {}, country: 'Bangladesh', lan: 'bn' };
+  state = { data: {}, localData: {}, country: 'Bangladesh' };
 
   async componentDidMount() {
     try {
@@ -30,6 +30,7 @@ class App extends Component {
     const { country } = localData;
     this.setState({ localData, country });
   };
+
   render() {
     const { data, localData, country } = this.state;
     return (
@@ -56,9 +57,11 @@ class App extends Component {
                       country={country}
                       lan='bn'
                     />
-                    <Notice lan='bn' />
+                    <Notice country={country} lan='bn' />
                   </div>
-                  <Footer font='font-bd' lan='bn' />
+                  <div className='text-center'>
+                    <Footer font='font-bd' lan='bn' />
+                  </div>
                 </Fragment>
               )}
             />
@@ -70,7 +73,7 @@ class App extends Component {
               render={(props) => (
                 <Fragment>
                   <Navbar font='font-bd' lan='en' link='/' nav='বাংলা' />
-                  <Cards data={data} lan='en' />
+                  <Cards data={data} ln='en' />
                   <div className='container'>
                     <CountryPicker
                       country={country}
@@ -86,7 +89,9 @@ class App extends Component {
 
                     <Notice lan='en' />
                   </div>
-                  <Footer font='font-en' lan='en' />
+                  <div className='text-center'>
+                    <Footer font='font-en' lan='en' />
+                  </div>
                 </Fragment>
               )}
             />

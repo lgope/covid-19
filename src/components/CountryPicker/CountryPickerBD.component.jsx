@@ -1,131 +1,23 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import { fetchCountryData } from '../../api/covid19.api';
-import { Select } from 'antd';
+import React, { Fragment } from 'react';
 import CountUp from 'react-countup';
-import casesImg from '../../images/infected_cases.svg';
-import deathsImg from '../../images/deaths_cases.svg';
-import recoveredImg from '../../images/recoveries_from_covid.svg';
-import criticalImg from '../../images/criticalImg.png';
+
+import Country from './Country.component';
+import { localBangliData } from '../../Data/data';
+
 import styles from './CountryPickerBD.module.css';
-const { Option } = Select;
+
 
 const CountryPicker = ({ handleCountryChange, localData, country }) => {
-  const [fetchedCountryData, setFetchedCountryData] = useState([]);
-  useEffect(() => {
-    const fetchedAPI = async () => {
-      setFetchedCountryData(await fetchCountryData());
-    };
-    fetchedAPI();
-  }, [setFetchedCountryData]);
+  const [modifiedData, todaysData] = localBangliData(localData);
 
-  const modifiedData = [
-    {
-      name: 'আক্রান্ত',
-      img: casesImg,
-      endData: localData.cases,
-      textStyle: 'text-info',
-      smallText: 'জন',
-      text: 'আক্রান্ত হয়েছে',
-    },
-    {
-      name: 'মারা গিয়েছে',
-      img: deathsImg,
-      endData: localData.deaths,
-      textStyle: 'text-danger',
-      smallText: 'জন',
-      text: 'মারা গিয়েছে',
-    },
-    {
-      name: 'সুস্থ্য হয়েছেন',
-      img: recoveredImg,
-      endData: localData.recovered,
-      textStyle: 'text-success',
-      smallText: 'জন',
-      text: 'সুস্থ্য হয়েছেন',
-    },
-  ];
-
-  const todaysData = [
-    {
-      name: 'আজ আক্রান্ত',
-      img: casesImg,
-      imgClass: 'img-fluid',
-      endData: localData.todayCases,
-      textStyle: 'text-info',
-      smallText: 'জন',
-      text: 'আজ আক্রান্ত হয়েছে',
-    },
-    {
-      name: 'মারা গিয়েছে',
-      img: deathsImg,
-      imgClass: 'img-fluid',
-      endData: localData.todayDeaths,
-      textStyle: 'text-danger',
-      smallText: 'জন',
-      text: 'আজ মারা গিয়েছে',
-    },
-    {
-      name: 'গুরুতর',
-      img: criticalImg,
-      imgClass: 'img-fluid criticalImg',
-      endData: localData.critical,
-      textStyle: 'text-warning',
-      smallText: 'জনের',
-      text: 'গুরুতর অবস্থা',
-    },
-  ];
   return (
     <div className={styles.bn}>
-      <div className='row justify-content-between align-items-center p-3'>
-        <div className='col-md-12 text-center'>
-          <h2 className='mb-5'>
-            আপনি দেখছেন <span className={styles.en}>{country}</span> এর তথ্য
-          </h2>
-        </div>
-        <div className='my-3 d-flex align-items-center'>
-          <h4 className={`${styles.en} mb-0`}>
-            {localData?.country ? (
-              localData.country
-            ) : (
-              <small className={`${styles.en} text-primary`}>
-                Loading . . .
-              </small>
-            )}
-          </h4>
-          &nbsp; &nbsp;
-          <div>
-            {localData?.flag ? (
-              <img
-                src={localData.flag}
-                style={{ width: '35px' }}
-                alt='&nbsp;'
-              />
-            ) : null}
-          </div>
-        </div>
-        <div className='my-3'>
-          <div className={`${styles.en} form-row`}>
-            <Select
-              onChange={(country) => handleCountryChange(country)}
-              showSearch
-              size={'large'}
-              style={{ width: 200 }}
-              placeholder='Select a Country'
-              optionFilterProp='children'
-              filterOption={(input, option) =>
-                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-              }
-            >
-              <Option value='bangladesh'>Bangladesh</Option>
-              {fetchedCountryData?.map((data, i) => (
-                <Option key={i} value={data.code}>
-                  {data.country}
-                </Option>
-              ))}
-            </Select>
-          </div>
-        </div>
-      </div>
+      <Country
+        handleCountryChange={handleCountryChange}
+        localData={localData}
+        country={country}
+        lan='bn'
+      />
 
       <div className='row local'>
         {modifiedData.map((data) => (

@@ -1,170 +1,255 @@
 import React from 'react';
+import './Notice.style.css';
 
-function Notice({ lan }) {
-  let messag0, messag1, messag2;
-  if (lan === 'bn') {
-    messag0 = 'দ্রষ্টব্য : ';
-    messag1 = 'জনগণের জন্য বিশ্ব স্বাস্থ্য সংস্থার ওয়েবসাইট থেকে নেওয়া';
-    messag2 = 'নিজেকে এবং অন্যদের অসুস্থ হওয়ার হাত থেকে রক্ষা করুন';
-  } else {
-    messag0 = 'Note : ';
-    messag1 = 'Taken from the World Health Organization website for the public';
-    messag2 = 'Protect yourself and others from getting sick';
-  }
-
+function Notice({ country, lan }) {
   return (
     <div>
       <hr style={{ background: '#343a40' }} />
-
-      <h2 className='text-warning mb-4'>
-        <span className='text-info text-center'>{messag0}</span>
-        {messag1}
-      </h2>
       <div className='row text-center tex-lg-left'>
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301837-34f67f00-87c8-11ea-8e8c-ad1645f188f8.jpg'
-            alt='be-ready-social-3'
-          />
-        </div>
-
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301835-332cbb80-87c8-11ea-9295-997613709ca5.jpg'
-            alt='be-ready-social-2'
-          />
-        </div>
-
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301830-3162f800-87c8-11ea-977e-505a9b6685c7.jpg'
-            alt='be-ready-social-1'
-          />
-        </div>
-
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301840-39229c80-87c8-11ea-9cd1-3b5b9c02a262.jpg'
-            alt='be-smart-if-you-develop'
-          />
-        </div>
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301842-3d4eba00-87c8-11ea-81c5-6707e46397ff.jpg'
-            alt='be-smart-inform'
-          />
-        </div>
-
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301839-36c04280-87c8-11ea-8107-8025cbf8040b.jpg'
-            alt='be-safe'
-          />
-        </div>
-
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301823-2740f980-87c8-11ea-9e76-d335b83bbffc.jpg'
-            alt='be-kind-to-address-stigma'
-          />
-        </div>
-
-        <div className='col-lg-6 col-md-12 col-sm-12 mb-4'>
-          <img
-            className='img-fluid img-thumbnail hvr-grow-shadow'
-            src='https://user-images.githubusercontent.com/58518192/80301822-260fcc80-87c8-11ea-9b8b-d4dd3b34fbd3.jpg'
-            alt='be-kind-to-address-fear'
-          />
-        </div>
-
-        <hr style={{ background: '#343a40' }} />
-        <h2 className='text-warning mb-4'>{messag2}</h2>
-
-        <div className='row text-center text-lg-left'>
-          <div className='col-lg-6 col-md-10 col-sm-10 mb-4'>
-            <img
-              src='https://user-images.githubusercontent.com/58518192/80301846-46d82200-87c8-11ea-88eb-51fc4035d6e3.jpg'
-              alt='blue-2'
-              className='img-fluid img-thumbnail hvr-grow-shadow'
-            />
+        <div className='col-lg-12 col-md-12 col-sm-12 mb-4'>
+          <div class='page-title '>
+            <div class='title-center'>
+              {lan === 'bn' ? (
+                <h2>করোনাভাইরাস সম্পর্কে সচেতনতা (কোভিড -19)</h2>
+              ) : (
+                <h2>Awareness for Coronavirus (Covid -19)</h2>
+              )}
+            </div>
           </div>
 
-          <div className='col-lg-6 col-md-10 col-sm-10 mb-4'>
-            <img
-              src='https://user-images.githubusercontent.com/58518192/80301853-4dff3000-87c8-11ea-9732-6fcf5d1e4b5d.jpg'
-              alt='blue-3'
-              className='img-fluid img-thumbnail hvr-grow-shadow'
-            />
-          </div>
+          <div className='field field-type-text-textarea-with-summary field-body'>
+            <div className='field-item text-left'>
+              <p>
+                {lan === 'bn' ? (
+                  <strong>করোনাভাইরাস (সারস-কোভি -২) এবং কোভিড -১৯ কী?</strong>
+                ) : (
+                  <strong>
+                    What is Coronavirus (SARS-CoV-2) and Covid-19?
+                  </strong>
+                )}
+              </p>
+              {lan === 'bn' ? (
+                <p>
+                  করোনাভাইরাস (সিওভি) ভাইরাসগুলির বৃহত পরিবারে অন্তর্ভুক্ত যা
+                  হালকা জ্বর বা মারাত্মক রোগের কারণ হতে পারে, উদাহরণস্বরূপ:{' '}
+                  <strong>
+                    মিডিল ইস্ট রেসপিরেটরি সিন্ড্রোম (মেরস-কোভি), গুরুতর তীব্র
+                    শ্বাসতন্ত্র সিন্ড্রোম (এসএআরএস-কোভি), এবং কোভিড -১৯
+                  </strong>
+                </p>
+              ) : (
+                <p>
+                  Coronavirus (CoV) belongs to a larger family of viruses which
+                  can lead to mild fever or even fatal diseases, for example:{' '}
+                  <strong>
+                    Middle East Respiratory Syndrome (MERSE-CoV), Severe Acute
+                    Respiratory Syndrome (SARS-CoV) and Covid-19.
+                  </strong>
+                </p>
+              )}
 
-          <div className='col-lg-6 col-md-10 col-sm-10 mb-4'>
-            <img
-              src='https://user-images.githubusercontent.com/58518192/80301855-4fc8f380-87c8-11ea-9eef-630e92348a80.jpg'
-              alt='blue-4'
-              className='img-fluid img-thumbnail hvr-grow-shadow'
-            />
+              {lan === 'bn' ? (
+                <p>
+                  এসএআরএস-কোভ -২ করোনাভাইরাস সিওভিডি -১৯ রোগের জন্য দায়ী এবং
+                  এটি একটি নতুন প্রজাতি যা এর আগে মানবদেহে দেখা যায় নি। এটি
+                  একটি পরিবেষ্টিত, ইতিবাচক ধারণা, একক-স্ট্র্যান্ড আরএনএ ভাইরাস।
+                </p>
+              ) : (
+                <p>
+                  SARS-Cov-2 Coronavirus is responsible for the COVID-19
+                  disease, and it is a new species which has not been seen in
+                  the human body before. It is an enveloped, positive sense,
+                  single strand RNA virus.
+                </p>
+              )}
+            </div>
           </div>
+        </div>
 
-          <div className='col-lg-6 col-md-10 col-sm-10 mb-4'>
-            <img
-              src='https://user-images.githubusercontent.com/58518192/80309739-a0f0db80-87f8-11ea-8f92-147667e9c81b.jpg'
-              alt='stay_home'
-              className='img-fluid img-thumbnail hvr-grow-shadow'
-            />
+        <div className='collapseBtn container col-lg-10 col-md-10 col-sm-12 mb-4'>
+          <div id='accordion'>
+            <div className='card panel-box-body panel-box'>
+              <div className='card-header text-left panel-head-title'>
+                <a className='h6' data-toggle='collapse' href='#collapseOne'>
+                  {lan === 'bn' ? 'উপসর্গ' : 'Symptoms'}
+                </a>
+              </div>
+              <div
+                id='collapseOne'
+                className='collapse'
+                data-parent='#accordion'
+              >
+                <div className='card-body'>
+                  <p className='SymptomsPtag'>
+                    <img
+                      className='symptomImg'
+                      alt='symptomImage'
+                      src='https://user-images.githubusercontent.com/58518192/80411047-5b620a80-88ed-11ea-8f44-9d1385f1666a.png'
+                    />
+                  </p>
+
+                  <ul className='list-group list-group-flush'>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'লক্ষণগুলি সাধারণত ২-১৪ দিনের মধ্যে দেখা দেয়'
+                        : 'Symptoms generally appear within 2-14 days'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'বেশিরভাগ ক্ষেত্রে, প্রথম লক্ষণটি হল জ্বর (১00 ডিগ্রি ফারেনহাইট / ৩৮ ডিগ্রি সেলসিয়াসের বেশি)'
+                        : 'In most cases, the first symptom is fever (more than 100 degrees Fahrenheit/38 degree Celsius)'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'শুকনো কাশি / গলা ব্যথাও হতে পারে'
+                        : 'Dry cough/sore throat may also occur'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'শ্বাস প্রশ্বাসের সমস্যা বা নিউমোনিয়া হতে পারে'
+                        : 'Respiratory issues or pneumonia may occur'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'অন্যান্য বিদ্যমান অসুস্থতা (ডায়াবেটিস / উচ্চ রক্তচাপ / শ্বাস প্রশ্বাস / হার্ট / কিডনিজনিত সমস্যা ইত্যাদি) অঙ্গে ব্যর্থতা বা বিভিন্ন শারীরিক ব্যাধি হতে পারে।'
+                        : 'Other existing illnesses (diabetes/hypertension/respiratory/heart disease/kidney problems etc.) can lead to organ failure or various bodily disorders.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className='card panel-box'>
+              <div className='card-header text-left panel-head-title'>
+                <a
+                  className='collapsed card-link h6'
+                  data-toggle='collapse'
+                  href='#collapseTwo'
+                >
+                  {lan === 'bn' ? 'প্রতিরোধ' : 'Prevent'}
+                </a>
+              </div>
+              <div
+                id='collapseTwo'
+                className='collapse'
+                data-parent='#accordion'
+              >
+                <div className='card-body'>
+                  <p className='SymptomsPtag'>
+                    <img
+                      className='preventImg'
+                      alt='preventImg'
+                      src='https://user-images.githubusercontent.com/58518192/80411004-49806780-88ed-11ea-9b86-975f2db7b411.png'
+                    />
+                  </p>
+
+                  <ul className='list-group list-group-flush'>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'কমপক্ষে 20 সেকেন্ডের জন্য সাবান এবং জল দিয়ে আপনার হাত ঘন ঘন ধুয়ে নিন।'
+                        : 'Wash your hands frequently with soap and water for at least 20 seconds.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'হাত না ধুয়ে আপনার চোখ, নাক এবং মুখ স্পর্শ করবেন না।'
+                        : 'Do not touch your eyes, nose and mouth with unwashed hands.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'কাশি বা হাঁচি দেওয়ার সময় আপনার মুখটি ডাকতে বাহু / টিস্যু / কাপড় ব্যবহার করুন।'
+                        : 'Use arm/tissue/cloth to cover your mouth while coughing or sneezing.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'জমায়েত করা এড়িয়ে চলুন।'
+                        : 'Avoid gatherings.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'আপনার চারপাশের লোকজনের থেকে কমপক্ষে ৩ ফুট দূরত্ব রেখে সামাজিক দূরত্ব বজায় রাখুন।'
+                        : 'Maintain social distancing by keeping at least a 3 ft distance from people around you.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'জরুরি প্রয়োজন না হলে বাড়িতেই থাকুন। নিরাপদে থাকুন এবং অন্যের সুরক্ষাও নিশ্চিত করুন।'
+                        : 'Stay home, unless there is an urgent need. Stay safe, and ensure others’ safety too.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'সকল প্রকার ভ্রমণ এড়িয়ে চলুন এবং সাম্প্রতিক কোনও ভ্রমণ ইতিহাসের ক্ষেত্রে স্ব-চাপিয়ে দেওয়া হোম-কোয়ারান্টেইনে থাকুন।'
+                        : 'Avoid all kinds of travel, and stay in self-imposed home-quarantine in case of any recent travel history.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'কোথাও থুথু ফেলবেন না। কোয়ারান্টিনে থাকা লোকদের সাথে যোগাযোগ এড়িয়ে চলুন।'
+                        : 'Do not spit anywhere. Avoid contact with people who are in quarantine.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'ইতিমধ্যে সংক্রামিত ব্যক্তিদের সাথে যোগাযোগ এড়িয়ে চলুন।'
+                        : 'Avoid contact with people who have already been infected.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className='card panel-box'>
+              <div className='card-header text-left panel-head-title'>
+                <a
+                  className='collapsed card-link h6'
+                  data-toggle='collapse'
+                  href='#collapseThree'
+                >
+                  {lan === 'bn' ? 'জরুরী পরিস্থিতিতে' : 'In An Emergency'}
+                </a>
+              </div>
+              <div
+                id='collapseThree'
+                className='collapse'
+                data-parent='#accordion'
+              >
+                <div className='card-body'>
+                  <p className='SymptomsPtag'>
+                    <img
+                      className='doctorImg'
+                      alt='doctorImg'
+                      src='https://user-images.githubusercontent.com/58518192/80411077-69b02680-88ed-11ea-98db-09bfbbce9220.png'
+                    />
+                  </p>
+
+                  <ul className='list-group list-group-flush text-left'>
+                    <li className='list-group-item'>
+                      {lan === 'bn'
+                        ? 'লক্ষণগুলি দেখা দিলে রোগীদের তাত্ক্ষণিকভাবে নিজেকে বিচ্ছিন্ন করা উচিত এবং বাড়ির কোয়ারান্টাইন থাকা উচিত।'
+                        : 'Patients showing symptoms should isolate himself/herself immediately and stay in home quarantine.'}
+                    </li>
+                    <li className='list-group-item'>
+                      {lan === 'bn' ? (
+                        <p>
+                          <strong> বাংলাদেশে : </strong> 'লক্ষণগুলি দেখানো
+                          রোগীদের 16263 বা 333 বা আইইডিসিআর হটলাইনের সাথে
+                          যোগাযোগ করতে হবে (গ্রামীণফোন ব্যবহারকারীরা 16263 এবং
+                          333 নম্বরে কল করতে পারেন)।'
+                        </p>
+                      ) : (
+                        <p>
+                          <strong> In Bangladesh: </strong>'Patients showing
+                          symptoms need to contact 16263 or 333 or IEDCR hotline
+                          (Grameenphone users can call for free at 16263 and
+                          333).'
+                        </p>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <hr style={{ background: '#343a40' }} />
-
-      <blockquote className='blockquote mt-5 mb-4 text-center'>
-        <a
-          className='link'
-          href='https://www.who.int/'
-          target='blank'
-          rel='noreferrer'
-        >
-          {lan === 'bn'
-            ? 'বিশ্ব স্বাস্থ্য সংস্থা'
-            : 'World Health Organization'}
-        </a>
-
-        <footer className='blockquote-footer text-dark'>
-          <b>
-            {lan === 'bn'
-              ? `যেসব ব্যক্তি COVID-19 ছড়িয়ে পড়ছে সেখানে সম্প্রতি বা গত ১৪ দিন পরিদর্শন করেছেন এমন ব্যক্তিদের সুরক্ষা ব্যবস্থা
-              `
-              : `Protection measures for persons who are in or have recently visited
-              (past 14 days) areas where COVID-19 is spreading`}
-          </b>
-        </footer>
-
-        <div>
-          <p className='text-dark'>
-            {lan === 'bn'
-              ? `উপরে বর্ণিত গাইডেন্স অনুসরণ করুন।`
-              : `Follow the guidance outlined above.`}
-          </p>
-          <p class='text-dark'>
-            {lan === 'bn'
-              ? `আপনি সুস্থ না হওয়া অবধি যদি আপনি অসুস্থ বোধ শুরু করেন, এমনকি মাথা ব্যথা এবং হালকা নাক দিয়ে নাকের মতো হালকা লক্ষণ রয়েছে। অন্যের সাথে যোগাযোগ এড়ানো এবং চিকিত্সা সুবিধাগুলি পরিদর্শন করা এই সুবিধাগুলি আরও কার্যকরভাবে পরিচালিত করতে এবং আপনাকে এবং অন্যদেরকে সম্ভাব্য COVID-19 এবং অন্যান্য ভাইরাস থেকে রক্ষা করতে সহায়তা করবে।`
-              : `Stay at home if you begin to feel unwell, even with mild symptoms such as headache and a slight runny nose, until you recover. Why? Avoiding contact with others and visits to medical facilities will allow these facilities to operate more effectively and help protect you and others from possible COVID-19 and other viruses.
-              `}
-          </p>
-          <p class='text-dark'>
-            {lan === 'bn'
-              ? `যদি আপনার জ্বর, কাশি এবং শ্বাসকষ্ট হয় তবে অবিলম্বে চিকিত্সার পরামর্শ নিন কারণ এটি শ্বাসকষ্টের সংক্রমণ বা অন্যান্য গুরুতর অবস্থার কারণে হতে পারে। আগে থেকেই কল করুন এবং আপনার সরবরাহকারীর সাথে সাম্প্রতিক যাতায়াত বা যাত্রীদের সাথে যোগাযোগের কথা বলুন। কেন? আগে থেকে কল করা আপনার স্বাস্থ্যসেবা সরবরাহকারীকে দ্রুত আপনাকে সঠিক স্বাস্থ্য সুবিধার দিকে পরিচালিত করার অনুমতি দেবে। এটি COVID-19 এবং অন্যান্য ভাইরাসগুলির সম্ভাব্য বিস্তার রোধ করতেও সহায়তা করবে।`
-              : `If you develop fever, cough, and difficulty breathing, seek medical advice promptly as this may be due to a respiratory infection or other serious condition. Call in advance and tell your provider of any recent travel or contact with travelers. Why? Calling in advance will allow your health care provider to quickly direct you to the right health facility. This will also help to prevent the possible spread of COVID-19 and other viruses.`}
-          </p>
-        </div>
-      </blockquote>
+      {/* <hr style={{ background: '#343a40' }} /> */}
     </div>
   );
 }
