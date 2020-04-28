@@ -1,43 +1,11 @@
 import React from 'react';
 import CountUp from 'react-countup';
-import casesImg from '../../images/infected_cases.svg';
-import deathsImg from '../../images/deaths_cases.svg';
-import recoveredImg from '../../images/recoveries_from_covid.svg';
-import activeCasesImg from '../../images/activeCasesImg.svg';
+import { globalEnglishData } from '../../Data/data';
 import LastUpdate from '../LastUpdateInfo/lastUpdateInfo.component';
 import GlobalDataChart from '../Charts/GlobalDataChart.component';
 
 const Cards = ({ data, lan }) => {
-  let modifiedData = [
-    {
-      name: 'Cases',
-      img: casesImg,
-      endData: data.cases,
-      textStyle: 'text-info',
-      text: 'TOTAL CASES',
-    },
-    {
-      name: 'Active case',
-      img: activeCasesImg,
-      endData: data.active,
-      textStyle: 'text-dark',
-      text: 'ACTIVE CASES',
-    },
-    {
-      name: 'Deaths',
-      img: deathsImg,
-      endData: data.deaths,
-      textStyle: 'text-danger',
-      text: 'TOTAL DEATHS',
-    },
-    {
-      name: 'Recover',
-      img: recoveredImg,
-      endData: data.recovered,
-      textStyle: 'text-success',
-      text: 'TOTAL RECOVERIES',
-    },
-  ];
+  const modifiedData = globalEnglishData(data);
 
   return (
     <div className='landingEn'>
@@ -53,7 +21,7 @@ const Cards = ({ data, lan }) => {
                 <div className='col-md-6 col-sm-12 col-lg-12 my-3 hvr-bob'>
                   <div className='row shadow align-items-center justify-content-between no-gutters'>
                     <div className='col-3'>
-                      <img src={da.img} alt='Cases' className='img-fluid' />
+                      <img src={da.img} alt='' className='img-fluid' />
                     </div>
                     <div className='col-8'>
                       <h2 className={da.textStyle}>
@@ -76,7 +44,7 @@ const Cards = ({ data, lan }) => {
             </div>
           </div>
 
-          <div className='col-lg-8 text-center my-3'>
+          <div className='col-lg-8 col-sm-10 col-md-10 text-center my-3'>
             <GlobalDataChart />
           </div>
         </div>
