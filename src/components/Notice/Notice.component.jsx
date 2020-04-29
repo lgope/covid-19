@@ -1,7 +1,7 @@
 import React from 'react';
 import './Notice.style.css';
 
-function Notice({ country, lan }) {
+function Notice({ lan }) {
   return (
     <div>
       <hr style={{ background: '#343a40' }} />
@@ -10,7 +10,7 @@ function Notice({ country, lan }) {
           <div class='page-title '>
             <div class='title-center'>
               {lan === 'bn' ? (
-                <h2>করোনাভাইরাস সম্পর্কে সচেতনতা (কোভিড -19)</h2>
+                <h2>করোনাভাইরাস সম্পর্কে সচেতনতা (কোভিড -১৯)</h2>
               ) : (
                 <h2>Awareness for Coronavirus (Covid -19)</h2>
               )}
@@ -146,7 +146,7 @@ function Notice({ country, lan }) {
                   <ul className='list-group list-group-flush'>
                     <li className='list-group-item'>
                       {lan === 'bn'
-                        ? 'কমপক্ষে 20 সেকেন্ডের জন্য সাবান এবং জল দিয়ে আপনার হাত ঘন ঘন ধুয়ে নিন।'
+                        ? 'কমপক্ষে ২0 সেকেন্ডের জন্য সাবান এবং জল দিয়ে আপনার হাত ঘন ঘন ধুয়ে নিন।'
                         : 'Wash your hands frequently with soap and water for at least 20 seconds.'}
                     </li>
                     <li className='list-group-item'>

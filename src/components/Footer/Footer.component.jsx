@@ -2,7 +2,7 @@ import React from 'react';
 const Footer = ({ font, lan }) => {
   return (
     <footer className={`${font} border-top`}>
-      <div className='container'>
+      <div className='container text-center'>
         <p className='lead text-center mb-0 p-4'>
           {lan === 'bn' ? (
             <p>

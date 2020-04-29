@@ -1,80 +1,72 @@
-import React from 'react';
-import CountUp from 'react-countup';
+import React, { useState, useEffect } from 'react';
+import { fetchCountryData } from '../../api/covid19.api';
 
-import { localEnglishData } from '../../Data/data';
-import Country from './Country.component';
+import { Select } from 'antd';
 
-const CountryPicker = ({ handleCountryChange, localData, country }) => {
-  const [modifiedData, todaysData] = localEnglishData(localData);
+const { Option } = Select;
+
+const CountryPicker = ({ handleCountryChange, localData, country, lan }) => {
+  const [fetchedCountryData, setFetchedCountryData] = useState([]);
+  useEffect(() => {
+    const fetchedAPI = async () => {
+      setFetchedCountryData(await fetchCountryData());
+    };
+    fetchedAPI();
+  }, [setFetchedCountryData]);
 
   return (
-    <div>
-      <Country
-        handleCountryChange={handleCountryChange}
-        localData={localData}
-        country={country}
-        lan='en'
-      />
-
-      <div className='row local'>
-        {modifiedData.map((data) => (
-          <div className='col-md-4 my-3 hvr-grow-shadow'>
-            <div className='row shadow align-items-center justify-content-between no-gutters'>
-              <div className='col-3'>
-                <img src={data.img} alt='&nbsp;' className='img-fluid' />
-              </div>
-              <div className='col-8'>
-                <h2 className={data.textStyle}>
-                  {data?.endData >= 0 ? (
-                    <CountUp
-                      start={0}
-                      end={data.endData}
-                      duration={2.3}
-                      separator={','}
-                    />
-                  ) : (
-                    <small className='text-primary'>Loading . . .</small>
-                  )}
-                </h2>
-                <p className='text-muted'>{data.text}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+    <div className='row justify-content-between align-items-center p-3'>
+      <div className='col-md-12 text-center'>
+        <h2 className='mb-5'>
+          {lan === 'bn' ? (
+            <p>
+              আপনি দেখছেন <span className='en'>{country}</span> এর তথ্য
+            </p>
+          ) : (
+            <p>You are viewing {country} data</p>
+          )}
+        </h2>
       </div>
-
-      <div className='row local'>
-        <div className='col-md-12 my-3 py-3 text-left'>
-          <h3>Today's Last Updates :</h3>
+      <div className='my-3 d-flex align-items-center'>
+        <h4 className='en mb-0'>
+          {localData?.country ? (
+            localData.country
+          ) : (
+            <small className='en text-primary'>Loading . . .</small>
+          )}
+        </h4>
+        &nbsp; &nbsp;
+        <div>
+          {localData?.flag ? (
+            <img src={localData.flag} style={{ width: '35px' }} alt='&nbsp;' />
+          ) : null}
         </div>
-
-        {todaysData.map((data) => (
-          <div className='col-md-4 my-3 hvr-wobble-vertical'>
-            <div className='row shadow align-items-center justify-content-between no-gutters'>
-              <div className='col-3'>
-                <img src={data.img} alt='&nbsp;' className={data.imgClass} />
-              </div>
-              <div className='col-8'>
-                <h2 className={data.textStyle}>
-                  {data?.endData >= 0 ? (
-                    <CountUp
-                      start={0}
-                      end={data.endData}
-                      duration={2.3}
-                      separator={','}
-                    />
-                  ) : (
-                    <small className='text-primary'>Loading . . .</small>
-                  )}
-                </h2>
-                <p className='text-muted'>{data.text}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+      </div>
+      <div className='my-3'>
+        <div className='en form-row'>
+          <Select
+            onChange={(country) => handleCountryChange(country)}
+            showSearch
+            size={'large'}
+            style={{ width: 200 }}
+            placeholder='Select a Country'
+            optionFilterProp='children'
+            filterOption={(input, option) =>
+              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            <Option value='bangladesh'>Bangladesh</Option>
+            {fetchedCountryData?.map((data, i) => (
+              <Option key={i} value={data.code}>
+                {data.country}
+              </Option>
+            ))}
+          </Select>
+        </div>
       </div>
     </div>
   );
 };
 
 export default CountryPicker;
+

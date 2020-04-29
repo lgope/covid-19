@@ -4,7 +4,7 @@ import recoveredImg from '../images/recoveries_from_covid.svg';
 import criticalImg from '../images/criticalImg.png';
 import activeCasesImg from '../images/activeCasesImg.svg';
 
-export const globalEnglishData = (data) => {
+export const globalData = (data, lan) => {
   const modifiedData = [
     {
       id: 0,
@@ -12,7 +12,8 @@ export const globalEnglishData = (data) => {
       img: casesImg,
       endData: data.cases,
       textStyle: 'text-info',
-      text: 'TOTAL CASES',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'আক্রান্ত হয়েছে' : 'TOTAL CASES',
     },
     {
       id: 1,
@@ -20,7 +21,8 @@ export const globalEnglishData = (data) => {
       img: activeCasesImg,
       endData: data.active,
       textStyle: 'text-dark',
-      text: 'ACTIVE CASES',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'গুরুতর অবস্থা' : 'ACTIVE CASES',
     },
     {
       id: 2,
@@ -28,7 +30,8 @@ export const globalEnglishData = (data) => {
       img: deathsImg,
       endData: data.deaths,
       textStyle: 'text-danger',
-      text: 'TOTAL DEATHS',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'মারা গিয়েছে' : 'TOTAL DEATHS',
     },
     {
       id: 3,
@@ -36,166 +39,69 @@ export const globalEnglishData = (data) => {
       img: recoveredImg,
       endData: data.recovered,
       textStyle: 'text-success',
-      text: 'TOTAL RECOVERIES',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'সুস্থ্য হয়েছেন' : 'TOTAL RECOVERIES',
     },
   ];
 
   return modifiedData;
 };
 
-export const globalBangliData = (data) => {
-  const modifiedData = [
-    {
-      id: 0,
-      name: 'Cases',
-      img: casesImg,
-      endData: data.cases,
-      textStyle: 'text-info',
-      smallText: 'জন',
-      text: 'আক্রান্ত হয়েছে',
-    },
-    {
-      id: 1,
-      name: 'Active case',
-      img: activeCasesImg,
-      endData: data.active,
-      textStyle: 'text-dark',
-      smallText: 'জন',
-      text: 'গুরুতর অবস্থা',
-    },
-    {
-      id: 2,
-      name: 'Deaths',
-      img: deathsImg,
-      endData: data.deaths,
-      textStyle: 'text-danger',
-      smallText: 'জন',
-      text: 'মারা গিয়েছে',
-    },
-    {
-      id: 3,
-      name: 'Recover',
-      img: recoveredImg,
-      endData: data.recovered,
-      textStyle: 'text-success',
-      smallText: 'জন',
-      text: 'সুস্থ্য হয়েছেন',
-    },
-  ];
-
-  return modifiedData;
-};
-
-export const localBangliData = (localData) => {
-  const modifiedData = [
-    {
-      name: 'আক্রান্ত',
-      img: casesImg,
-      endData: localData.cases,
-      textStyle: 'text-info',
-      smallText: 'জন',
-      text: 'আক্রান্ত হয়েছে',
-    },
-    {
-      name: 'মারা গিয়েছে',
-      img: deathsImg,
-      endData: localData.deaths,
-      textStyle: 'text-danger',
-      smallText: 'জন',
-      text: 'মারা গিয়েছে',
-    },
-    {
-      name: 'সুস্থ্য হয়েছেন',
-      img: recoveredImg,
-      endData: localData.recovered,
-      textStyle: 'text-success',
-      smallText: 'জন',
-      text: 'সুস্থ্য হয়েছেন',
-    },
-  ];
-
-  const todaysData = [
-    {
-      name: 'আজ আক্রান্ত',
-      img: casesImg,
-      imgClass: 'img-fluid',
-      endData: localData.todayCases,
-      textStyle: 'text-info',
-      smallText: 'জন',
-      text: 'আজ আক্রান্ত হয়েছে',
-    },
-    {
-      name: 'মারা গিয়েছে',
-      img: deathsImg,
-      imgClass: 'img-fluid',
-      endData: localData.todayDeaths,
-      textStyle: 'text-danger',
-      smallText: 'জন',
-      text: 'আজ মারা গিয়েছে',
-    },
-    {
-      name: 'গুরুতর',
-      img: criticalImg,
-      imgClass: 'img-fluid criticalImg',
-      endData: localData.critical,
-      textStyle: 'text-warning',
-      smallText: 'জনের',
-      text: 'গুরুতর অবস্থা',
-    },
-  ];
-
-  return [modifiedData, todaysData];
-};
-
-export const localEnglishData = (localData) => {
+export const localData = (data, lan) => {
   const modifiedData = [
     {
       name: 'Confirmed',
       img: casesImg,
-      endData: localData.cases,
+      endData: data.cases,
       textStyle: 'text-info',
-      text: 'Confirmed',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'আক্রান্ত হয়েছে' : 'Confirmed',
     },
     {
       name: 'Deaths',
       img: deathsImg,
-      endData: localData.deaths,
+      endData: data.deaths,
       textStyle: 'text-danger',
-      text: 'Deaths',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'মারা গিয়েছে' : 'Deaths',
     },
     {
-      name: 'Recoverd',
+      name: 'Recovered',
       img: recoveredImg,
-      endData: localData.recovered,
+      endData: data.recovered,
       textStyle: 'text-success',
-      text: 'Recoverd',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'সুস্থ্য হয়েছেন' : 'Recovered',
     },
   ];
 
   const todaysData = [
     {
-      name: 'New Cases',
+      name: 'Confirmed',
       img: casesImg,
       imgClass: 'img-fluid',
-      endData: localData.todayCases,
+      endData: data.todayCases,
       textStyle: 'text-info',
-      text: 'New Cases',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'আজ আক্রান্ত হয়েছে' : 'New Cases',
     },
     {
-      name: 'New Deaths',
+      name: 'Deaths',
       img: deathsImg,
       imgClass: 'img-fluid',
-      endData: localData.todayDeaths,
+      endData: data.todayDeaths,
       textStyle: 'text-danger',
-      text: 'New Deaths',
+      smallText: lan === 'bn' ? ' জন' : '',
+      text: lan === 'bn' ? 'আজ মারা গিয়েছে' : 'New Deaths',
     },
     {
-      name: 'Critical',
+      name: 'Recoverd',
       img: criticalImg,
       imgClass: 'img-fluid criticalImg',
-      endData: localData.critical,
+      endData: data.critical,
       textStyle: 'text-warning',
-      text: 'Critical',
+      smallText: lan === 'bn' ? ' জনের' : '',
+      text: lan === 'bn' ? 'গুরুতর অবস্থা' : 'Critical',
     },
   ];
 
