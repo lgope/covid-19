@@ -91,9 +91,7 @@ export const fetchCountryData = async () => {
 
 export const fetchDaily = async (country) => {
   try {
-    const { data } = await axios.get(
-      `${api}/historical/${country}`
-    );
+    const { data } = await axios.get(`${api}/historical/${country}`);
 
     const { timeline } = data;
 

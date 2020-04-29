@@ -65,10 +65,10 @@ body {
 }
 
 .criticalImg {
-  height: 42px;
-  width: 42px;
+  height: 40px;
+  width: 45px;
+  padding-left: 4px;
 }
-
 /* hover */
 /* Grow Shadow */
 .hvr-grow-shadow {

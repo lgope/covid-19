@@ -1,16 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index.css';
-import {
-  Navbar,
-  Cards,
-  CardsBD,
-  Charts,
-  CountryPicker,
-  CountryPickerBD,
-  Notice,
-  Footer,
-} from './components';
+import { Navbar, Cards, Charts, Country, Notice, Footer } from './components';
 import { fetchDate, fetchLocalCountry } from './api/covid19.api';
 
 class App extends Component {
@@ -44,12 +35,13 @@ class App extends Component {
               render={(props) => (
                 <Fragment>
                   <Navbar font='font-en' lan='bn' link='/en' nav='English' />
-                  <CardsBD data={data} lan='bn' />
+                  <Cards data={data} lan='bn' />
                   <div className='container'>
-                    <CountryPickerBD
+                    <Country
                       country={country}
-                      localData={localData}
+                      data={localData}
                       handleCountryChange={this.handleCountryChange}
+                      language='bn'
                     />
                     <Charts
                       font='font-bd'
@@ -57,11 +49,9 @@ class App extends Component {
                       country={country}
                       lan='bn'
                     />
-                    <Notice country={country} lan='bn' />
+                    <Notice lan='bn' />
                   </div>
-                  <div className='text-center'>
-                    <Footer font='font-bd' lan='bn' />
-                  </div>
+                  <Footer font='font-bd' lan='bn' />
                 </Fragment>
               )}
             />
@@ -73,12 +63,13 @@ class App extends Component {
               render={(props) => (
                 <Fragment>
                   <Navbar font='font-bd' lan='en' link='/' nav='বাংলা' />
-                  <Cards data={data} ln='en' />
+                  <Cards data={data} lan='en' />
                   <div className='container'>
-                    <CountryPicker
+                    <Country
                       country={country}
-                      localData={localData}
+                      data={localData}
                       handleCountryChange={this.handleCountryChange}
+                      language='en'
                     />
                     <Charts
                       font='font-en'
@@ -86,12 +77,9 @@ class App extends Component {
                       country={country}
                       lan='en'
                     />
-
                     <Notice lan='en' />
                   </div>
-                  <div className='text-center'>
-                    <Footer font='font-en' lan='en' />
-                  </div>
+                  <Footer font='font-en' lan='en' />
                 </Fragment>
               )}
             />

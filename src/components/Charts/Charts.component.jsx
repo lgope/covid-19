@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchDaily } from '../../api/covid19.api';
 import Chart from 'react-apexcharts';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import Spinner from '../Spinner/Spinner.component';
 
 const Charts = ({ msg, font, country, lan }) => {
@@ -25,30 +25,30 @@ const Charts = ({ msg, font, country, lan }) => {
 
   const { confirmed, deaths, recovere, date } = dailyData;
 
-  const doughnutChart = confirmed ? (
-    <Doughnut
-      data={{
-        type: '',
-        labels: ['Confirmed', 'Deaths', 'Recovered'],
-        datasets: [
-          {
-            label: 'COVID-19',
-            backgroundColor: [
-              'rgba(26, 16, 83, 0.603)',
-              'rgb(255, 99, 132)',
-              'rgb(29, 209, 161)',
-            ],
-            borderColor: '#fff',
-            data: [
-              confirmed[confirmed.length - 1],
-              deaths[deaths.length - 1],
-              recovere[recovere.length - 1],
-            ],
-          },
-        ],
-      }}
-    />
-  ) : null;
+  // const doughnutChart = confirmed ? (
+  //   <Doughnut
+  //     data={{
+  //       type: '',
+  //       labels: ['Confirmed', 'Deaths', 'Recovered'],
+  //       datasets: [
+  //         {
+  //           label: 'COVID-19',
+  //           backgroundColor: [
+  //             'rgba(26, 16, 83, 0.603)',
+  //             'rgb(255, 99, 132)',
+  //             'rgb(29, 209, 161)',
+  //           ],
+  //           borderColor: '#fff',
+  //           data: [
+  //             confirmed[confirmed.length - 1],
+  //             deaths[deaths.length - 1],
+  //             recovere[recovere.length - 1],
+  //           ],
+  //         },
+  //       ],
+  //     }}
+  //   />
+  // ) : null;
 
   const barChart = confirmed ? (
     <Bar
@@ -127,7 +127,6 @@ const Charts = ({ msg, font, country, lan }) => {
           : `Current state in ${country}`}
       </h5>
       <div>{barChart}</div>
-      {/* <div>{doughnutChart}</div> */}
     </div>
   );
 };
