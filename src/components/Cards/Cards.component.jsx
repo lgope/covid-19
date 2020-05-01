@@ -26,7 +26,7 @@ const Cards = ({ data, lan }) => {
             </div>
           </div>
 
-          <div className='col-lg-8 col-sm-10 col-md-10 text-center my-3'>
+          <div className='col-lg-8 col-sm-12 col-md-12 text-center my-3'>
             <GlobalDataChart />
           </div>
 

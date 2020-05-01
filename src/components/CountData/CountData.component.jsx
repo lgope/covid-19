@@ -15,7 +15,14 @@ function CountData({ data, lan }) {
     );
   }
 
-  return <CountUp start={0} end={data.endData} separator=',' />;
+  return (
+    <CountUp
+      start={0}
+      formattingFn={(num) => num.toLocaleString('en-US')}
+      end={data.endData}
+      separator=','
+    />
+  );
 }
 
 export default CountData;
