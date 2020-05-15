@@ -23,7 +23,7 @@ const Navbar = ({ link, nav, font, lan }) => {
           </h5>
         </div>
         <ul className='navbar-nav flex-row ml-auto'>
-          <li className='nav-item ml-3'>
+          {/* <li className='nav-item ml-3'>
             <a
               href='https://github.com/lgope/'
               className='nav-link icon github'
@@ -31,7 +31,7 @@ const Navbar = ({ link, nav, font, lan }) => {
             >
               <i className='fab fa-github'></i>
             </a>
-          </li>
+          </li> */}
           <li className='nav-item ml-3'>
             <Link className={`${font} nav-link`} to={link}>
               <Button type='dashed'>{nav}</Button>

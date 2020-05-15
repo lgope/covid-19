@@ -241,8 +241,12 @@ body {
   font-size: 30px;
 }
 
-.icon.github i {
+.github {
   color: #24292e;
+}
+
+.linkedin {
+  color: #018fd1;
 }
 
 .logo {
