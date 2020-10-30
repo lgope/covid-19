@@ -8,7 +8,7 @@ import './Cards.style.css';
 const Cards = ({ data, lan }) => {
   const mainDivStyle = lan === 'bn' ? 'landingBn' : 'landingEn';
 
-  const modifiedData = globalData(data, lan)
+  const modifiedData = globalData(data, lan);
 
   return (
     <div className={`bn ${mainDivStyle}`}>
@@ -20,8 +20,8 @@ const Cards = ({ data, lan }) => {
 
           <div className='col-lg-4 my-3'>
             <div className='row'>
-              {modifiedData.map((data, id) => (
-                <Card data={data} id={id} language={lan} />
+              {modifiedData.map((data, index) => (
+                <Card data={data} key={index} language={lan} />
               ))}
             </div>
           </div>

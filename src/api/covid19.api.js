@@ -3,7 +3,7 @@ import axios from 'axios';
 const api = 'https://corona.lmao.ninja/v2';
 
 // Global Data
-export const fetchDate = async () => {
+export const fetchData = async () => {
   try {
     const {
       data: {

@@ -25,8 +25,8 @@ const Country = ({
       />
 
       <div className='row local'>
-        {modifiedData.map((data) => (
-          <CountryLocalData data={data} lan={language} />
+        {modifiedData.map((data, index) => (
+          <CountryLocalData key={index} data={data} lan={language} />
         ))}
       </div>
 
@@ -39,8 +39,8 @@ const Country = ({
           )}
         </div>
 
-        {todaysData.map((data) => (
-          <CountryTodaysData data={data} lan={language} />
+        {todaysData.map((data, index) => (
+          <CountryTodaysData key={index} data={data} lan={language} />
         ))}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchDate } from '../../api/covid19.api';
+import { fetchData } from '../../api/covid19.api';
 import { Polar } from 'react-chartjs-2';
 import Spinner from '../Spinner/Spinner.component';
 
@@ -7,7 +7,7 @@ const GlobalDataChart = () => {
   const [globalData, setGlobalData] = useState({});
   useEffect(() => {
     const fetchDataAPI = async () => {
-      setGlobalData(await fetchDate());
+      setGlobalData(await fetchData());
     };
     fetchDataAPI();
   }, []);
