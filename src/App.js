@@ -19,7 +19,7 @@ const App = () => {
     };
 
     fetchFunc();
-  },['']);
+  },[]);
 
   const handleCountryChange = async countryName => {
     const localData = await fetchLocalCountry(countryName);
