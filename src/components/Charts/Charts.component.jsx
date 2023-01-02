@@ -63,9 +63,10 @@ const Charts = ({ msg, font, country, lan }) => {
               'rgba(0, 255, 0, 0.5)',
             ],
             data: [
-              confirmed[confirmed.length - 1],
-              deaths[deaths.length - 1],
-              recovere[recovere.length - 1],
+            '0', '0' , '0'
+              // confirmed[confirmed.length - 1],
+              // deaths[deaths.length - 1],
+              // recovere[recovere.length - 1],
             ],
           },
         ],

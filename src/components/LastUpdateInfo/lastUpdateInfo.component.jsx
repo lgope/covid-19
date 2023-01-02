@@ -13,7 +13,8 @@ const lastUpdateInfo = ({ data, lan }) => (
             Last updated <Moment fromNow>{data?.updated}</Moment>
           </small>
         ) : (
-          <small className='en text-info'>Updating . . .</small>
+          // <small className='en text-info'>Updating . . .</small>
+          <small className='en text-danger'>NB: API doesn't provide any data anymore!...</small>
         )}
       </h5>
     </div>
